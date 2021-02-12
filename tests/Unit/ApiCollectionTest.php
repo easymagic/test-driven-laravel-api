@@ -27,6 +27,8 @@ class ApiCollectionTest extends TestCase
 
     public function test_example()
     {
+
+
         $data = [
             'name'=>'Test Name',
             'email'=>'username1@domain.com',
@@ -42,6 +44,11 @@ class ApiCollectionTest extends TestCase
         ]));
 
 
+
+
     }
+
+
+
 
 }

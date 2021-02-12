@@ -47,6 +47,14 @@ class User extends Authenticatable
         $this->name = $data['name'];
         $this->email = $data['email'];
         $this->password = Hash::make($data['password']);
+
+        if ($this->userExists($data['email'])){
+            return [
+                'message'=>'User with email already exists!',
+                'error'=>true
+            ];
+        }
+
         $this->save();
 
         return [
