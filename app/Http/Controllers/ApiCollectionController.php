@@ -12,7 +12,11 @@ class ApiCollectionController extends Controller
     //
 
     function createUser(){
-
+      return (new User)->createUser([
+          'name'=>request('name'),
+          'email'=>request('email'),
+          'password'=>request('password')
+      ]);
     }
 
     function getUser(User $user){
