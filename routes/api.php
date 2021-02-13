@@ -33,9 +33,9 @@ Route::get('get-file-versions/{projectFile}',[\App\Http\Controllers\ApiCollectio
 Route::get('get-image-fills/{projectFileName}',[\App\Http\Controllers\ApiCollectionController::class,'getImageFills']);
 Route::post('add-comment',[\App\Http\Controllers\ApiCollectionController::class,'addComment']);
 Route::get('get-comments/{projectName}',[\App\Http\Controllers\ApiCollectionController::class,'getComments']);
-
-
 Route::get('get-me/{email}',[\App\Http\Controllers\ApiCollectionController::class,'getMe']);
-Route::post('get-users',[\App\Http\Controllers\ApiCollectionController::class,'getUsers']);
+Route::get('get-users',[\App\Http\Controllers\ApiCollectionController::class,'getUsers']);
+
+
 
 

@@ -175,6 +175,13 @@ class ApiCollectionTest extends TestCase
         $this->assertJson($response);
     }
 
+    function test_getUsers(){
+
+        $response = $this->get('get-users');
+        $this->assertJson($response);
+
+    }
+
 
 
 

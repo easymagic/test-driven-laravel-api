@@ -125,6 +125,10 @@ class ApiCollectionController extends Controller
     }
     function getUsers(){
 
+        return [
+            'list'=>User::all()
+        ];
+
     }
 
     function getProjects(){
