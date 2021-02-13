@@ -23,6 +23,16 @@ class ApiCollectionController extends Controller
        return User::getUserFromEmail($email);
     }
 
+    function addProject(){
+        $data = [
+            'name'=>request('name'),
+            'email'=>request('email')
+        ];
+
+        return (new Project)->createProject($data);
+
+    }
+
     function getFile(ProjectFile $projectFile){
 
     }
@@ -59,7 +69,9 @@ class ApiCollectionController extends Controller
     }
 
     function getProjects(){
-
+      return [
+          'list'=>Project::all()
+      ];
     }
 
     function getProjectFiles(Project $project){

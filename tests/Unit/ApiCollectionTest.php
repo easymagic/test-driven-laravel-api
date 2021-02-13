@@ -73,6 +73,28 @@ class ApiCollectionTest extends TestCase
 
     }
 
+    function test_addProject(){
+
+        $data = [
+            'name'=>'project name' . date('h:i:s'),
+            'email'=>'username1@domain.com'
+        ];
+
+        $response = $this->post('add-project',$data);
+
+        $this->assertJson($response,$this->stringify([
+            'email'=>'username1@domain.com'
+        ]));
+
+    }
+
+    function test_getProjects(){
+        $response = $this->get('get-projects');
+        $this->assertJson($response,$this->stringify([
+            'list'=>[]
+        ]));
+    }
+
 
 
 
