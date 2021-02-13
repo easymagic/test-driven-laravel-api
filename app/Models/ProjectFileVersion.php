@@ -9,10 +9,10 @@ class ProjectFileVersion extends Model
 {
     use HasFactory;
 
-    function createProjectFileVersion($projectFileId){
-        $data = ProjectFile::find($projectFileId);
+    function createProjectFileVersion($projectFileName){
+        $data = ProjectFile::getFromProjectFileName($projectFileName); // find($projectFileId);
 
-        $this->project_file_id = $projectFileId;
+        $this->project_file_id = $data->id;
         $this->created_by = $data->created_by;
         $this->name = $data->name;
         $this->contents = $data->contents;
@@ -24,4 +24,11 @@ class ProjectFileVersion extends Model
         ];
 
     }
+
+    static function fetch($projectFileName){
+        $project_file_id = ProjectFile::getIdFromProjectFileName($projectFileName);
+        return (new self)->newQuery()->where('project_file_id',$project_file_id);
+    }
+
+
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use App\Models\ProjectFile;
 use App\Models\ProjectFileImage;
+use App\Models\ProjectFileVersion;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -67,15 +68,25 @@ class ApiCollectionController extends Controller
 
     }
 
-    function getFileImages(ProjectFile $projectFile){
-
+    function getFileImages($projectFileName){
+      return [
+          'list'=>ProjectFileImage::fetch($projectFileName)
+      ];
     }
 
-    function getFileVersions(ProjectFile $projectFile){
-
+    function addFileVersion($projectFileName){
+       $response = (new ProjectFileVersion)->createProjectFileVersion($projectFileName);
+       return $response;
     }
 
-    function getImageFills(ProjectFile $projectFile){
+    function getFileVersions($projectFileName){
+        return [
+            'list'=>ProjectFileVersion::fetch($projectFileName)
+        ];
+    }
+
+
+    function getImageFills($projectFileName){
 
     }
 

@@ -129,6 +129,22 @@ class ApiCollectionTest extends TestCase
         $this->assertJson($response);
     }
 
+    function test_getProjectFileImages(){
+        $response = $this->get('get-file-images/new_file1.txt');
+        $this->assertJson($response);
+    }
+
+    function test_addProjectFileVersion(){
+        $response = $this->get('add-file-version/new_file1.txt');
+        $this->assertJson($response);
+    }
+
+    function test_getProjectFileVersions(){
+        $response = $this->get('get-file-versions/new_file1.txt');
+        $this->assertJson($response);
+    }
+
+
 
 
 

@@ -20,4 +20,17 @@ class ProjectFileImage extends Model
         ];
 
     }
+
+    static function fetch($projectFileName){
+
+        $project_file_id = ProjectFile::getIdFromProjectFileName($projectFileName);
+        return (new self)->newQuery()->where('project_file_id',$project_file_id);
+
+    }
+
+    static function fetchImageFills($projectFileName){
+        
+    }
+
+
 }

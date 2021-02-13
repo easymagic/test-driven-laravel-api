@@ -27,10 +27,11 @@ Route::post('add-file',[\App\Http\Controllers\ApiCollectionController::class,'ad
 Route::get('get-file/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFile']);
 Route::get('get-file-nodes',[\App\Http\Controllers\ApiCollectionController::class,'getFileNodes']);
 Route::post('add-file-image',[\App\Http\Controllers\ApiCollectionController::class,'addFileImage']);
+Route::get('get-file-images/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileImages']);
+Route::get('add-file-version/{projectFileName}',[\App\Http\Controllers\ApiCollectionController::class,'addFileVersion']);
+Route::get('get-file-versions/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileVersions']);
 
-Route::post('get-file-images/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileImages']);
 
-Route::post('get-file-versions/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileVersions']);
 Route::post('get-image-fills/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getImageFills']);
 Route::post('get-comments/{project}',[\App\Http\Controllers\ApiCollectionController::class,'getComments']);
 Route::post('add-comment',[\App\Http\Controllers\ApiCollectionController::class,'addComment']);
