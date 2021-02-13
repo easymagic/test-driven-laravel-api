@@ -21,6 +21,14 @@ class ApiCollectionTest extends TestCase
         return json_encode($response->getBody()->getContents());
     }
 
+    function get($api){
+        $client = (new \GuzzleHttp\Client()); //->post($api,$data);
+
+        $response = $client->request('GET','http://127.0.0.1:8000/api/' . $api);
+
+        return json_encode($response->getBody()->getContents());
+    }
+
     function stringify($arr){
         return json_encode($arr);
     }
@@ -29,9 +37,11 @@ class ApiCollectionTest extends TestCase
     {
 
 
+        $email = 'username1@domain.com';
+        //test case create user
         $data = [
             'name'=>'Test Name',
-            'email'=>'username1@domain.com',
+            'email'=>$email,
             'password'=>'password123'
         ];
 
@@ -44,6 +54,21 @@ class ApiCollectionTest extends TestCase
         ]));
 
 
+        $this->test_getUser($email);
+
+
+    }
+
+    function test_getUser(){
+
+        $email = 'username1@domain.com';
+
+        $response = $this->get('get-user/' . $email);
+
+
+        $this->assertJson($response,$this->stringify([
+            'email'=>$email
+        ]));
 
 
     }

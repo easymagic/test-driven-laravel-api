@@ -19,8 +19,8 @@ class ApiCollectionController extends Controller
       ]);
     }
 
-    function getUser(User $user){
-
+    function getUser($email){
+       return User::getUserFromEmail($email);
     }
 
     function getFile(ProjectFile $projectFile){

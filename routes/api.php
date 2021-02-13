@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::post('create-user',[\App\Http\Controllers\ApiCollectionController::class,'createUser']);
-Route::post('get-user/{user}',[\App\Http\Controllers\ApiCollectionController::class,'getUser']);
+Route::get('get-user/{email}',[\App\Http\Controllers\ApiCollectionController::class,'getUser']);
 Route::post('get-file/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFile']);
 Route::post('get-file-nodes',[\App\Http\Controllers\ApiCollectionController::class,'getFileNodes']);
 Route::post('get-file-images/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileImages']);
