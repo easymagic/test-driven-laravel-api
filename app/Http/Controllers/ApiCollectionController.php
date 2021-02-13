@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Project;
 use App\Models\ProjectFile;
+use App\Models\ProjectFileImage;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -33,11 +34,36 @@ class ApiCollectionController extends Controller
 
     }
 
-    function getFile(ProjectFile $projectFile){
+    function addFile(){
+        $data = [
+            'project_name'=>request('project_name'),
+            'email'=>request('email'),
+            'file_name'=>request('file_name'),
+            'contents'=>request('contents')
+        ];
+        $response = (new ProjectFile)->createProjectFile($data);
+        return $response;
+    }
 
+    function getFile($projectFileName){
+       return ProjectFile::getFromProjectFileName($projectFileName);
     }
 
     function getFileNodes(){
+      return [
+          'list'=>ProjectFile::all()
+      ];
+    }
+
+    function addFileImage(){
+
+      $data = [
+          'project_file_name'=>request('project_file_name'),
+          'image_path'=>request('image_path')
+      ];
+
+      $response = (new ProjectFileImage)->createProjectFileImage($data);
+      return $response;
 
     }
 

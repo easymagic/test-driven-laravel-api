@@ -10,13 +10,13 @@ class ProjectFileImage extends Model
     use HasFactory;
 
     function createProjectFileImage($data){
-        $this->project_file_id = ProjectFile::getIdFromProjectFileName($data['name']);
+        $this->project_file_id = ProjectFile::getIdFromProjectFileName($data['project_file_name']);
         $this->image_path = $data['image_path'];
         $this->save();
 
         return [
             'image_path'=>$this->image_path,
-            'profile_file'=>$data['name']
+            'profile_file_name'=>$data['project_file_name']
         ];
 
     }

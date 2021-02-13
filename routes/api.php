@@ -23,10 +23,13 @@ Route::post('create-user',[\App\Http\Controllers\ApiCollectionController::class,
 Route::get('get-user/{email}',[\App\Http\Controllers\ApiCollectionController::class,'getUser']);
 Route::post('add-project',[\App\Http\Controllers\ApiCollectionController::class,'addProject']);
 Route::get('get-projects',[\App\Http\Controllers\ApiCollectionController::class,'getProjects']);
+Route::post('add-file',[\App\Http\Controllers\ApiCollectionController::class,'addFile']);
+Route::get('get-file/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFile']);
+Route::get('get-file-nodes',[\App\Http\Controllers\ApiCollectionController::class,'getFileNodes']);
+Route::post('add-file-image',[\App\Http\Controllers\ApiCollectionController::class,'addFileImage']);
 
-Route::post('get-file/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFile']);
-Route::post('get-file-nodes',[\App\Http\Controllers\ApiCollectionController::class,'getFileNodes']);
 Route::post('get-file-images/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileImages']);
+
 Route::post('get-file-versions/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileVersions']);
 Route::post('get-image-fills/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getImageFills']);
 Route::post('get-comments/{project}',[\App\Http\Controllers\ApiCollectionController::class,'getComments']);

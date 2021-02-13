@@ -33,7 +33,7 @@ class ApiCollectionTest extends TestCase
         return json_encode($arr);
     }
 
-    public function test_example()
+    public function test_user()
     {
 
 
@@ -76,8 +76,8 @@ class ApiCollectionTest extends TestCase
     function test_addProject(){
 
         $data = [
-            'name'=>'project name' . date('h:i:s'),
-            'email'=>'username1@domain.com'
+            'name'=>'project1',
+            'email'=>'username1@domain.com',
         ];
 
         $response = $this->post('add-project',$data);
@@ -94,6 +94,41 @@ class ApiCollectionTest extends TestCase
             'list'=>[]
         ]));
     }
+
+
+    function test_addProjectFile(){
+        $data = [
+            'project_name'=>'project1',
+            'email'=>'username1@domain.com',
+            'file_name'=>'new_file1.txt',
+            'content'=>'Content txt..'
+        ];
+        $response = $this->post('add-file',$data);
+
+        $this->assertJson($response);
+    }
+
+
+    function test_getFile(){
+        $response = $this->get('get-file/new_file1.txt');
+        $this->assertJson($response);
+    }
+
+    function test_getFileNodes(){
+        $response = $this->get('get-file-nodes');
+        $this->assertJson($response);
+    }
+
+    function test_addFileImage(){
+        $data = [
+            'project_file_name'=>'new_file1.txt',
+            'image_path'=>'image_path/actual_image.ext'
+        ];
+        $response = $this->post('add-file-image',$data);
+
+        $this->assertJson($response);
+    }
+
 
 
 
