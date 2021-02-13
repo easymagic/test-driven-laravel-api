@@ -10,8 +10,8 @@ class ProjectComment extends Model
     use HasFactory;
 
     function createProjectComment($data){
-        $this->project_id = Project::getProjectIdFromName($data['name']);
-        $this->comment = $data['commment'];
+        $this->project_id = Project::getProjectIdFromName($data['project_name']);
+        $this->comment = $data['comment'];
         $this->save();
 
         return [

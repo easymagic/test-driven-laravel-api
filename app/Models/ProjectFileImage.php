@@ -29,8 +29,24 @@ class ProjectFileImage extends Model
     }
 
     static function fetchImageFills($projectFileName){
-        
+
+        $list = self::fetch($projectFileName)->get();
+        $list = collect($list);
+        $list = $list->map(function($item){
+
+            return [
+                'image_path'=>$item->image_path,
+                'downloadable_image'=>'http://domain.com/download/' . $item->image_path
+            ];
+
+        });
+
+        return $list;
+
     }
+
+
+
 
 
 }

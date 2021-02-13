@@ -30,9 +30,9 @@ Route::post('add-file-image',[\App\Http\Controllers\ApiCollectionController::cla
 Route::get('get-file-images/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileImages']);
 Route::get('add-file-version/{projectFileName}',[\App\Http\Controllers\ApiCollectionController::class,'addFileVersion']);
 Route::get('get-file-versions/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getFileVersions']);
+Route::get('get-image-fills/{projectFileName}',[\App\Http\Controllers\ApiCollectionController::class,'getImageFills']);
+Route::post('add-comment',[\App\Http\Controllers\ApiCollectionController::class,'addComment']);
 
-
-Route::post('get-image-fills/{projectFile}',[\App\Http\Controllers\ApiCollectionController::class,'getImageFills']);
 Route::post('get-comments/{project}',[\App\Http\Controllers\ApiCollectionController::class,'getComments']);
 Route::post('add-comment',[\App\Http\Controllers\ApiCollectionController::class,'addComment']);
 Route::post('get-me/{user}',[\App\Http\Controllers\ApiCollectionController::class,'getMe']);

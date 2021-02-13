@@ -144,6 +144,27 @@ class ApiCollectionTest extends TestCase
         $this->assertJson($response);
     }
 
+    function test_getProjectFileImageFills(){
+
+        $response = $this->get('get-image-fills/new_file1.txt');
+        $this->assertJson($response);
+
+    }
+
+    function test_addProjectComment(){
+        $data = [
+            'project_name'=>'project1',
+            'comment'=>'new comment 1'
+        ];
+
+        $response = $this->post('add-comment',$data);
+
+        $this->assertJson($response);
+
+    }
+
+
+
 
 
 

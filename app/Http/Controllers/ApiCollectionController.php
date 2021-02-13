@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\ProjectComment;
 use App\Models\ProjectFile;
 use App\Models\ProjectFileImage;
 use App\Models\ProjectFileVersion;
@@ -87,6 +88,21 @@ class ApiCollectionController extends Controller
 
 
     function getImageFills($projectFileName){
+       return [
+           'list'=>ProjectFileImage::fetchImageFills($projectFileName)
+       ];
+    }
+
+    function addComment(){
+
+        $data = [
+            'project_name'=>request('project_name'),
+            'comment'=>request('comment')
+        ];
+
+        $response = (new ProjectComment)->createProjectComment($data);
+
+        return $response;
 
     }
 
@@ -94,9 +110,7 @@ class ApiCollectionController extends Controller
 
     }
 
-    function addComment(){
 
-    }
 
     function getMe(User $user){
 
