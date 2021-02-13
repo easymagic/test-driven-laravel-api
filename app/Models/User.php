@@ -71,9 +71,7 @@ class User extends Authenticatable
 
 
     static function getUserIdFromEmail($email){
-     $query = (new User)->newQuery();
-     $query = $query->where('email',$email);
-     return $query->first()->id;
+        return self::getUserFromEmail($email)->id;
     }
 
     static function getUserFromEmail($email){

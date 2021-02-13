@@ -19,4 +19,10 @@ class ProjectComment extends Model
             'project_id'=>$this->project_id
         ];
     }
+
+
+    static function fetch($projectName){
+        $project_id = Project::getProjectIdFromName($projectName);
+        return (new self)->newQuery()->where('project_id',$project_id);
+    }
 }

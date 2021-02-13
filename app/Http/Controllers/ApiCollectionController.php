@@ -106,13 +106,21 @@ class ApiCollectionController extends Controller
 
     }
 
-    function getComments(Project $project){
+    function getComments($projectName){
+
+        return [
+            'list'=>ProjectComment::fetch($projectName)->get()
+        ];
 
     }
 
 
 
-    function getMe(User $user){
+    function getMe($email){
+
+         return [
+             'data'=>User::getUserFromEmail($email)
+         ];
 
     }
     function getUsers(){
@@ -125,9 +133,10 @@ class ApiCollectionController extends Controller
       ];
     }
 
-    function getProjectFiles(Project $project){
+//    function getProjectFiles(Project $project){
+//
+//    }
 
-    }
 
 
 }

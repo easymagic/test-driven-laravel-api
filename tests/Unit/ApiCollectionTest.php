@@ -163,6 +163,20 @@ class ApiCollectionTest extends TestCase
 
     }
 
+    function test_getProjectComments(){
+
+        $response = $this->get('get-comments/project1');
+        $this->assertJson($response);
+
+    }
+
+    function test_getMe(){
+        $response = $this->get('get-me/username1@domain.com');
+        $this->assertJson($response);
+    }
+
+
+
 
 
 
